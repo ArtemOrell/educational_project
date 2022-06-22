@@ -78,7 +78,6 @@ class RKSOKServer:
             await aiofiles.os.mkdir(self.path_to_phonebook)
         async with aiofiles.open(f'{self.path_to_phonebook}/{self.name}', mode='w', encoding='UTF-8') as f:
             logger.debug(f'Write phones to a file:{self.path_to_phonebook}/{self.name}')
-            print(self.phones, )
             await f.write('\r\n'.join(self.phones))
         response_to_client = f'{ResponseWords.OK.value} {PROTOCOL}\r\n\r\n'
         return response_to_client
